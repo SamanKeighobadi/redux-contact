@@ -1,18 +1,17 @@
 import React, { useState } from "react";
 // React Router DOM
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 // import Redux and Redux actions
 import { useDispatch } from "react-redux";
 import { updateContact } from "../../redux/actions/contacts";
 
 const EditContact = () => {
-
   // init states
   const [updatedName, setUpdatedName] = useState("");
   const [updatedEmail, setUpdatedEmail] = useState("");
   const [updatedPhone, setUpdatedPhone] = useState("");
 
-  // React router dom hooks 
+  // React router dom hooks
   const { id } = useParams();
   const navigate = useNavigate();
   // use redux
@@ -26,7 +25,7 @@ const EditContact = () => {
       email: updatedEmail,
       phone: updatedPhone,
     };
-    dispatch(updateContact(obj,id));
+    dispatch(updateContact(obj, id));
     // navigate('/')
   };
 
@@ -77,6 +76,11 @@ const EditContact = () => {
             <button className="bg-cyan-500 py-2 rounded-lg text-white text-lg">
               Submit
             </button>
+            <Link to={"/"}>
+              <button className="py-2 w-full rounded-lg border-2 text-red-500  border-red-500 hover:bg-red-500 hover:text-white">
+                Cancel
+              </button>
+            </Link>
           </form>
         </div>
       </div>
