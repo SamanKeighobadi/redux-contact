@@ -5,6 +5,7 @@ import {ToastContainer} from 'react-toastify'
 import MainLayout from "./components/layout/MainLayout";
 // React Router DOM 
 import {Route,Routes} from 'react-router-dom'
+// Custom components
 import Home from "./components/Home";
 import AddContact from "./components/Contacts/AddContact";
 import EditContact from "./components/Contacts/EditContact";

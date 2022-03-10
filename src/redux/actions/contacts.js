@@ -1,3 +1,5 @@
+import { toast } from "react-toastify";
+
 export const addNewContact = (name,email,phone) =>{
     return async(dispatch,getState) =>{
         const contacts = [...getState()];
@@ -12,3 +14,16 @@ export const addNewContact = (name,email,phone) =>{
     }
 }
 
+export const deleteContact = (id ) => {
+    return async(dispatch,getState) =>{
+        const contacts = [...getState()]
+        const filteredContact = contacts.filter(c => c.id !== id);
+        await dispatch({type:"DELETE_CONTACT",payload:filteredContact})
+        toast.success("Contact successfully deleted!",{
+            theme:'colored',
+            autoClose:true,
+            pauseOnHover:false,
+            closeOnClick:true,
+        })
+    }
+}
