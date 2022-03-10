@@ -2,11 +2,11 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteContact } from '../../redux/actions/contacts';
 
+
 const Contacts = () => {
 
     const contacts = useSelector(state =>state)    
     const dispatch = useDispatch()
-
     
 
     return ( 
