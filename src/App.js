@@ -7,6 +7,7 @@ import MainLayout from "./components/layout/MainLayout";
 import {Route,Routes} from 'react-router-dom'
 import Home from "./components/Home";
 import AddContact from "./components/Contacts/AddContact";
+import EditContact from "./components/Contacts/EditContact";
 
 const App = () => {
   return (
@@ -15,7 +16,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/addContact" element={<AddContact />} />
-          <Route path="/edit/:id" />
+          <Route path="/edit/:id" element={<EditContact />} />
         </Routes>
       </MainLayout>
       <ToastContainer />

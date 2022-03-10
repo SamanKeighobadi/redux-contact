@@ -1,44 +1,27 @@
-import React, { useState } from "react";
-
-const AddContact = () => {
-  const [contacts, setContacts] = useState([
-    {
-      id: 1,
-      name: "saman keighobadi",
-      email: "saman.keighobadi@gmail.com",
-      phone: "0191283",
-    },
-    {
-      id: 1,
-      name: "soheil keighobadi",
-      email: "soheil.keighobadi@gmail.com",
-      phone: "0190000",
-    },
-  ]);
-
+const EditContact = () => {
   return (
     <div className="bg-white rounded-md shadow-lg px-6 py-2 w-1/3 text-gray-600    ">
       <div>
         <div className="text-center">
-          <h1 className="text-3xl font-semibold py-4 mb-3">Add New Contact</h1>
+          <h1 className="text-3xl font-semibold py-4 mb-3">Edit Contact</h1>
         </div>
         <div>
           <form className="flex flex-col space-y-5 pb-5">
-            <lable className='text-sm font-medium mb-1'>Fullname:</lable>
+            <lable className="text-sm font-medium mb-1">Fullname:</lable>
             <input
               type={"text"}
               placeholder="full name "
               required
               className="rounded-lg border-gray-300 shadow-sm"
             />
-            <lable className='text-sm font-medium mb-1'>Email:</lable>
+            <lable className="text-sm font-medium mb-1">Email:</lable>
             <input
               type={"email"}
               placeholder="email "
               required
               className="rounded-lg border-gray-300 shadow-sm"
             />
-            <lable className='text-sm font-medium mb-1'>Phone:</lable>
+            <lable className="text-sm font-medium mb-1">Phone:</lable>
             <input
               type={"tel"}
               placeholder="phone "
@@ -46,7 +29,7 @@ const AddContact = () => {
               className="rounded-lg border-gray-300 shadow-sm"
             />
             <button className="bg-cyan-500 py-2 rounded-lg text-white text-lg">
-                Submit
+              Submit
             </button>
           </form>
         </div>
@@ -55,4 +38,4 @@ const AddContact = () => {
   );
 };
 
-export default AddContact;
+export default EditContact;
