@@ -1,9 +1,17 @@
 import { toast } from "react-toastify";
+// Sweetalert2
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
 const Alert = withReactContent(Swal);
 
+/**
+ * 
+ * @param {string} name name of contact
+ * @param {email} email email of contact
+ * @param {string} phone phone number of contact
+ * @returns object of dispatch
+ */
 export const addNewContact = (name, email, phone) => {
   return async (dispatch, getState) => {
     const contacts = [...getState()];
@@ -18,6 +26,12 @@ export const addNewContact = (name, email, phone) => {
   };
 };
 
+
+/**
+ * 
+ * @param {number} id id of contact which want to delete
+ * @returns object
+ */
 export const deleteContact = (id) => {
   return async (dispatch, getState) => {
     const contacts = [...getState()];
