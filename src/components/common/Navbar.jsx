@@ -1,13 +1,18 @@
+import { Link } from "react-router-dom";
+
 const Navbar = () => {
-    return ( 
-        <div className="h-20 bg-sky-400">
-            <div className="flex items-center justify-center h-20">
-                <h1 className="lg:text-3xl xl:text-3xl   font-semibold text-sky-900">
-                    Redux Contact App
-                </h1>
-            </div>
-        </div>
-     );
-}
- 
+  return (
+    <div className="h-16 bg-sky-400">
+      <div className="flex items-center justify-between flex-wrap px-6 h-16">
+        <h1 className="lg:text-2xl xl:text-2xl md:text-2xl sm:text-xl text-lg  font-semibold text-sky-100">
+          Redux Contact App
+        </h1>
+        <button className="text-sky-100  rounded-lg px-2 py-1">
+          <Link to={"/addContact"} >Add Contact</Link>
+        </button>
+      </div>
+    </div>
+  );
+};
+
 export default Navbar;
