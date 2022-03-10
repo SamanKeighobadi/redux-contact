@@ -46,3 +46,21 @@ export const deleteContact = (id) => {
     }
   };
 };
+
+
+export const updateContact = (updatedInfo,ID)=>{
+    return async(dispatch,getState) =>{
+        const allContacts =[...getState()];
+
+        const indexOfContact = allContacts.findIndex(contact => contact.id ===ID);
+        const contact = allContacts[indexOfContact];
+
+        contact.name = updatedInfo.name;
+        contact.email = updatedInfo.email;
+        contact.phone = updatedInfo.phone;
+
+        const contacts = [...allContacts]
+        contacts[indexOfContact] = contact;
+        await dispatch({type:"UPDATE_CONTACT",payload:contacts})
+    }
+}

@@ -1,22 +1,27 @@
 import React, { useState } from "react";
+// import redux and redux actions
 import { useDispatch, useSelector } from "react-redux";
 import { addNewContact } from "../../redux/actions/contacts";
+// React Toastify
 import { toast } from "react-toastify";
+// React Router DOM
 import { useNavigate } from "react-router-dom";
 
 const AddContact = () => {
   const navigate = useNavigate();
 
+  // init states
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-
+  //use reudx
   const contacts = useSelector((state) => state);
   const dispatch = useDispatch();
 
   const handleSumbit = (e) => {
     e.preventDefault();
 
+    // check if email or phone number already exist 
     const duplicateEmail = contacts.find((contact) => contact.email === email);
     const duplicatePhone = contacts.find((contact) => contact.email === email);
 
