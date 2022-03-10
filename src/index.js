@@ -9,7 +9,9 @@ import { BrowserRouter } from "react-router-dom";
 
 render(
   <BrowserRouter>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </BrowserRouter>,
   document.getElementById("root")
 );
