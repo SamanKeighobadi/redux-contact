@@ -1,52 +1,48 @@
 import React from "react";
-// import redux and redux actions
-import { useDispatch, useSelector } from "react-redux";
-import { deleteContact } from "../../redux/actions/contacts";
-// Hero Icon
-import { PencilAltIcon, TrashIcon } from "@heroicons/react/solid";
-// React Router DOM
-import { Link } from "react-router-dom";
+
+import Contact from "./Contact";
 
 const Contacts = () => {
-  // use redux
-  const contacts = useSelector((state) => state);
-  const dispatch = useDispatch();
-
   return (
     <div className="bg-white rounded-lg shadow-lg p-8">
-      <table className="table-auto ">
-        <thead className="text-slate-700">
-          <tr className="text-left ">
-            <th>Fullname:</th>
-            <th>Email:</th>
-            <th>Phone:</th>
-          </tr>
-        </thead>
-        <tbody className="text-slate-600 ">
-          {contacts.map((contact) => (
-            <tr key={contact.id} className=''>
-              <td>{contact.name}</td>
-
-              <td>{contact.email}</td>
-
-              <td>{contact.phone}</td>
-              <td>
-                <button
-                  onClick={() => dispatch(deleteContact(contact.id))}
-                  className="text-red-500 "
-                >
-                  <TrashIcon className="h-4 w-4" />
-                </button>
-                <button className="text-cyan-500 ">
-                  <Link to={`/edit/${contact.id}`}>
-                    <PencilAltIcon className="h-4 w-4" />
-                  </Link>
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <div class="flex flex-col">
+        <div class="overflow-x-auto shadow-md sm:rounded-lg">
+          <div class="inline-block min-w-full align-middle">
+            <div class="overflow-hidden ">
+              <table class="min-w-full divide-y divide-gray-200 table-fixed dark:divide-gray-700">
+                <thead class="bg-gray-100 dark:bg-gray-700">
+                  <tr>
+                    <th
+                      scope="col"
+                      class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-800 uppercase dark:text-gray-400"
+                    >
+                      Name
+                    </th>
+                    <th
+                      scope="col"
+                      class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-800 uppercase dark:text-gray-400"
+                    >
+                      Email
+                    </th>
+                    <th
+                      scope="col"
+                      class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-800 uppercase dark:text-gray-400"
+                    >
+                      Phone
+                    </th>
+                    <th scope="col" class="p-4">
+                      <span class="sr-only">Edit</span>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
+                  <Contact />
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

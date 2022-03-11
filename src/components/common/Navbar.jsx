@@ -7,7 +7,7 @@ const Navbar = () => {
         <h1 className="lg:text-2xl xl:text-2xl md:text-2xl sm:text-xl text-lg  font-semibold text-sky-100">
           Redux Contact App
         </h1>
-        <button className="text-sky-100  rounded-lg px-2 py-1">
+        <button className="text-sky-100 border-2 border-sky-100  rounded-lg px-2 py-1">
           <Link to={"/addContact"} >Add Contact</Link>
         </button>
       </div>
