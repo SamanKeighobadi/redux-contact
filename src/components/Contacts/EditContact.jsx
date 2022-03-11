@@ -66,7 +66,7 @@ const EditContact = () => {
   };
 
   return (
-    <div className="bg-white rounded-md shadow-lg px-6 py-2 w-1/3 text-gray-600 mx-auto mt-16    ">
+    <div className="bg-white rounded-md shadow-lg px-6 py-2 w-2/3 xl:w-1/3 lg:w-1/3 md:w-2/3 sm:w-3/4 text-gray-600 mx-auto mt-16    ">
       <div>
         <div className="text-center">
           <h1 className="text-3xl font-semibold py-4 mb-3">Edit Contact</h1>

@@ -14,7 +14,7 @@ const Contact = () => {
   return (
     <>
       {contacts.map((contact) => (
-        <tr class="hover:bg-gray-100 dark:hover:bg-gray-700" key={contact.id}>
+        <tr class="hover:bg-gray-100 dark:hover:bg-gray-700 " key={contact.id}>
           <td class="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">
             {contact.name}
           </td>

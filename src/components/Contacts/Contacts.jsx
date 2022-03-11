@@ -7,9 +7,9 @@ const Contacts = () => {
     <div className="bg-white rounded-lg shadow-lg p-8">
       <div class="flex flex-col">
         <div class="overflow-x-auto shadow-md sm:rounded-lg">
-          <div class="inline-block min-w-full align-middle">
+          <div class="  align-middle">
             <div class="overflow-hidden ">
-              <table class="min-w-full divide-y divide-gray-200 table-fixed dark:divide-gray-700">
+              <table class="table-auto divide-y divide-gray-200  dark:divide-gray-700">
                 <thead class="bg-gray-100 dark:bg-gray-700">
                   <tr>
                     <th
