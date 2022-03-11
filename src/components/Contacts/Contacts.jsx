@@ -11,7 +11,7 @@ const Contacts = () => {
             <div class="overflow-hidden ">
               <table class="table-auto divide-y divide-gray-200  dark:divide-gray-700">
                 <thead class="bg-gray-100 dark:bg-gray-700">
-                  <tr>
+                  <tr className="flex flex-col flex-no wrap sm:table-row">
                     <th
                       scope="col"
                       class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-800 uppercase dark:text-gray-400"
@@ -35,7 +35,7 @@ const Contacts = () => {
                     </th>
                   </tr>
                 </thead>
-                <tbody class="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
+                <tbody class="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700 flex-1 sm:flex-none">
                   <Contact />
                 </tbody>
               </table>

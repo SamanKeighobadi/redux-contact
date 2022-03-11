@@ -66,7 +66,7 @@ const EditContact = () => {
   };
 
   return (
-    <div className="bg-white rounded-md shadow-lg px-6 py-2 w-2/3 xl:w-1/3 lg:w-1/3 md:w-2/3 sm:w-3/4 text-gray-600 mx-auto mt-16    ">
+    <div className="bg-white rounded-md shadow-lg px-6 py-2 w-3/4 xl:w-1/3 lg:w-1/3 md:w-2/3 sm:w-3/4 text-gray-600 mx-auto mt-16    ">
       <div>
         <div className="text-center">
           <h1 className="text-3xl font-semibold py-4 mb-3">Edit Contact</h1>
@@ -74,7 +74,7 @@ const EditContact = () => {
         <div>
           <form
             onSubmit={handleSumbit}
-            className="flex flex-col space-y-5 pb-5"
+            className="flex flex-col space-y-3 pb-5"
           >
             <lable className="text-sm font-medium mb-1">Fullname:</lable>
             <input
