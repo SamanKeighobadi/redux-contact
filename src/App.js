@@ -17,7 +17,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/addContact" element={<AddContact />} />
-          <Route path="/edit/:id" element={<EditContact />} />
+          <Route path="/edit/:contactId" element={<EditContact />} />
         </Routes>
       </MainLayout>
       <ToastContainer />

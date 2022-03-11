@@ -2,31 +2,35 @@ import React, { useState } from "react";
 // React Router DOM
 import { useParams, useNavigate, Link } from "react-router-dom";
 // import Redux and Redux actions
-import { useDispatch } from "react-redux";
+import { useDispatch ,useSelector} from "react-redux";
 import { updateContact } from "../../redux/actions/contacts";
 
 const EditContact = () => {
-  // init states
-  const [updatedName, setUpdatedName] = useState("");
-  const [updatedEmail, setUpdatedEmail] = useState("");
-  const [updatedPhone, setUpdatedPhone] = useState("");
-
   // React router dom hooks
-  const { id } = useParams();
+  const { contactId } = useParams();
   const navigate = useNavigate();
+
   // use redux
+  const contacts = useSelector(state => state);
+  const currentContact = contacts.find(c =>c.id ===parseInt(contactId))
   const dispatch = useDispatch();
+
+  
+  // init states
+  const [updatedName, setUpdatedName] = useState(currentContact.name);
+  const [updatedEmail, setUpdatedEmail] = useState(currentContact.email);
+  const [updatedPhone, setUpdatedPhone] = useState(currentContact.phone);
+
 
   const handleSumbit = (e) => {
     e.preventDefault();
-
     const obj = {
       name: updatedName,
       email: updatedEmail,
       phone: updatedPhone,
     };
-    dispatch(updateContact(obj, id));
-    // navigate('/')
+    dispatch(updateContact(obj, contactId));
+    navigate('/')
   };
 
   return (

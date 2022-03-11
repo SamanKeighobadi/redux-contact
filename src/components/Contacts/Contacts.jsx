@@ -38,7 +38,7 @@ const Contacts = () => {
                   <TrashIcon className="h-4 w-4" />
                 </button>
                 <button className="text-cyan-500 ">
-                  <Link to={`edit/${contact.id}`}>
+                  <Link to={`/edit/${contact.id}`}>
                     <PencilAltIcon className="h-4 w-4" />
                   </Link>
                 </button>

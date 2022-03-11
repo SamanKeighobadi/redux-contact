@@ -6,7 +6,7 @@ import withReactContent from "sweetalert2-react-content";
 const Alert = withReactContent(Swal);
 
 /**
- * 
+ *
  * @param {string} name name of contact
  * @param {email} email email of contact
  * @param {string} phone phone number of contact
@@ -26,9 +26,8 @@ export const addNewContact = (name, email, phone) => {
   };
 };
 
-
 /**
- * 
+ *
  * @param {number} id id of contact which want to delete
  * @returns object
  */
@@ -61,20 +60,25 @@ export const deleteContact = (id) => {
   };
 };
 
+/**
+ *
+ * @param {object} updatedInfo object of name , email and phone number
+ * @param {string} id id must be integer but react router dom return string we should use parseInt method to convert it
+ * @returns object of updated contact info
+ */
+export const updateContact = (updatedInfo, id) => {
+  return async (dispatch, getState) => {
+    const allContacts = getState();
 
-export const updateContact = (updatedInfo,ID)=>{
-    return async(dispatch,getState) =>{
-        const allContacts =[...getState()];
+    const indexOfContact = allContacts.findIndex((p) => p.id === parseInt(id));
+    const contact = allContacts[indexOfContact];
 
-        const indexOfContact = allContacts.findIndex(contact => contact.id ===ID);
-        const contact = allContacts[indexOfContact];
+    contact.name = updatedInfo.name;
+    contact.email = updatedInfo.email;
+    contact.phone = updatedInfo.phone;
 
-        contact.name = updatedInfo.name;
-        contact.email = updatedInfo.email;
-        contact.phone = updatedInfo.phone;
-
-        const contacts = [...allContacts]
-        contacts[indexOfContact] = contact;
-        await dispatch({type:"UPDATE_CONTACT",payload:contacts})
-    }
-}
+    const contacts = [...allContacts];
+    contacts[indexOfContact] = contact;
+    await dispatch({ type: "UPDATE_CONTACT", payload: contacts });
+  };
+};
