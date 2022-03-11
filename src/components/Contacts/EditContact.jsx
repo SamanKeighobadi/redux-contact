@@ -2,8 +2,10 @@ import React, { useState } from "react";
 // React Router DOM
 import { useParams, useNavigate, Link } from "react-router-dom";
 // import Redux and Redux actions
-import { useDispatch ,useSelector} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { updateContact } from "../../redux/actions/contacts";
+// react toastify
+import { toast } from "react-toastify";
 
 const EditContact = () => {
   // React router dom hooks
@@ -11,16 +13,14 @@ const EditContact = () => {
   const navigate = useNavigate();
 
   // use redux
-  const contacts = useSelector(state => state);
-  const currentContact = contacts.find(c =>c.id ===parseInt(contactId))
+  const contacts = useSelector((state) => state);
+  const currentContact = contacts.find((c) => c.id === parseInt(contactId));
   const dispatch = useDispatch();
 
-  
   // init states
   const [updatedName, setUpdatedName] = useState(currentContact.name);
   const [updatedEmail, setUpdatedEmail] = useState(currentContact.email);
   const [updatedPhone, setUpdatedPhone] = useState(currentContact.phone);
-
 
   const handleSumbit = (e) => {
     e.preventDefault();
@@ -29,8 +29,40 @@ const EditContact = () => {
       email: updatedEmail,
       phone: updatedPhone,
     };
+
+    // check if email or phone number already exist
+    const duplicateEmail = contacts.find(
+      (contact) => contact.email === updatedEmail
+    );
+    const duplicatePhone = contacts.find(
+      (contact) => contact.phone === updatedPhone
+    );
+
+    if (duplicateEmail) {
+      return toast.error("Email already exist", {
+        theme: "colored",
+        autoClose: true,
+        pauseOnHover: false,
+        closeOnClick: true,
+      });
+    }
+    if (duplicatePhone) {
+      return toast.error("Phone number already exist", {
+        theme: "colored",
+        autoClose: true,
+        pauseOnHover: false,
+        closeOnClick: true,
+      });
+    }
+
     dispatch(updateContact(obj, contactId));
-    navigate('/')
+    toast.success("Contact successfully updated !", {
+      theme: "colored",
+      autoClose: true,
+      pauseOnHover: false,
+      closeOnClick: true,
+    });
+    navigate("/");
   };
 
   return (

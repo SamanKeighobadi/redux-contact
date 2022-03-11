@@ -23,7 +23,7 @@ const AddContact = () => {
 
     // check if email or phone number already exist 
     const duplicateEmail = contacts.find((contact) => contact.email === email);
-    const duplicatePhone = contacts.find((contact) => contact.email === email);
+    const duplicatePhone = contacts.find((contact) => contact.phone === phone);
 
     if (duplicateEmail) {
       return toast.error("Email already exist", {
